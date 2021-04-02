@@ -100,6 +100,27 @@ void load(FILE *fp, ListBomberos *B)
 
 }
 
+void printBomberos(ListBomberos * B){
+    //Imprimimos los bomberos por lo que apuntamos el current a la cabeza de la lista
+    firstList(B);
+    printf("RUT            NOMBRE                     DISPONIBILIDAD\n");
+    while(B->Current!=B->Tail){
+        printf("%-10s",B->Current->Rut);
+        printf("     ");
+        printf("%-16s",B->Current->Name);
+        printf("          ");
+        printf("[ %d %d %d %d %d %d %d ]\n",B->Current->Disponibilidad[0],B->Current->Disponibilidad[1],B->Current->Disponibilidad[2],B->Current->Disponibilidad[3],B->Current->Disponibilidad[4],B->Current->Disponibilidad[5],B->Current->Disponibilidad[6]);
+        B->Current=B->Current->Next;
+    }
+
+    //Imprimimos el ultimo
+    printf("%-10s",B->Tail->Rut);
+    printf("     ");
+    printf("%-16s",B->Tail->Name);
+    printf("          ");
+    printf("[ %d %d %d %d %d %d %d ]\n",B->Tail->Disponibilidad[0],B->Tail->Disponibilidad[1],B->Tail->Disponibilidad[2],B->Tail->Disponibilidad[3],B->Tail->Disponibilidad[4],B->Tail->Disponibilidad[5],B->Tail->Disponibilidad[6]);
+}
+
 void ImportarBomberos(){
     char nameFile[101];
     FILE *file;
@@ -117,4 +138,7 @@ void ImportarBomberos(){
     ListBomberos * B = createListBomberos();
     //Cargamos los datos del archivo y creamos las estructuras
     load(file,B);
+
+    printBomberos(B);
+
 }
