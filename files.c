@@ -47,9 +47,6 @@ const char*get_csv_field (char * tmp, int k) {
 
 void load(FILE *fp)
 {
-    // Se abre el archivo en modo lectura "r"
-    //FILE *fp = fopen (nameFile, "r");
-
     // Cadena para guardar la linea completa del archivo csv
     char linea[1024];
     int i;
@@ -63,6 +60,7 @@ void load(FILE *fp)
     while (fgets (linea, 1023, fp) != NULL) { // Se lee la linea
     //Creamos un bombero por linea de archivo y guardamos en el los datos 
         Bombero *bombero = createBombero();
+        int dia=0;
         for(i=0;i<9;i++){
             const char *aux = get_csv_field(linea, i); 
             //Guardamos el Rut
@@ -76,14 +74,15 @@ void load(FILE *fp)
                 
             }
             //Guardamos la disponibilidad
-            if(i==2){
+            if(i>=2){
                 if(!strcmp(aux,"SI")){
-                    bombero->Disponibilidad[0]=1;
+                    bombero->Disponibilidad[dia]=1;
                 }
                 else{
-                    bombero->Disponibilidad[0]=0;
+                    bombero->Disponibilidad[dia]=0;
                 }
-               
+                printf("dia %d: %d\n",dia,bombero->Disponibilidad[dia]);
+                dia+=1;               
             }
 
         }
