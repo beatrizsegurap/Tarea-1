@@ -85,14 +85,11 @@ void * firstList(ListBomberos * list) {
     if(!list->Head)return NULL;
     list->Current=list->Head;
 }
-/*
+
 void * nextList(ListBomberos * list) {
     if(!list->Current)return NULL;
     if(!list->Current->Next)return NULL;
-    Bombero* Next = malloc(sizeof(Bombero));
-    Next = list->Current->Next;
     list->Current=list->Current->Next;
-
 }
 
 void * lastList(ListBomberos * list) {
@@ -105,8 +102,7 @@ void * prevList(ListBomberos * list){
     if(!list->Current)return NULL;
     if(!list->Current->Prev)return NULL;
     list->Current=list->Current->Prev;
-    //return (void*)list->current->data;
-}*/
+}
 
 void pushFront(ListBomberos * list, Bombero * b) {
 
@@ -119,8 +115,6 @@ void pushFront(ListBomberos * list, Bombero * b) {
   }
   list->Head=b;
 }
-
-
 
 void pushCurrent(ListBomberos * list, Bombero * b){
   b->Next=list->Current->Next;
@@ -139,44 +133,45 @@ void pushBack(ListBomberos * list, Bombero * b) {
     pushCurrent(list,b);
 }
 
-/*
-void * popFront(List * list) {
-    list->current = list->head;
-    return popCurrent(list);
-}
-
-void * popBack(List * list) {
-    list->current = list->tail;
-    return popCurrent(list);
-}
-
-void * popCurrent(List * list) {
-  Node* aux = malloc(sizeof(Node));
-  aux = list->current;
+void * popCurrent(ListBomberos * list) {
+  Bombero* aux = malloc(sizeof(Bombero));
+  aux = list->Current;
 
   //Si el nodo a eliminar se encuentra en la cabecera
-  if(!list->current->prev){
-    list->head=list->current->next;
-    list->current->next->prev=NULL;
-    list->current=list->current->next;
-    return (void*)aux->data;
+  if(!list->Current->Prev){
+    list->Head=list->Current->Next;
+    list->Current->Next->Prev=NULL;
+    list->Current=list->Current->Next;
+    free(aux);
+    return NULL;
   }
   //Si el nodo a eliminar se encuentra al final
-  if(!list->current->next){
-    list->tail=list->current->prev;
-    list->current->prev->next=NULL;
-    list->current=list->current->prev;
-    return (void*)aux->data;
+  if(!list->Current->Next){
+    list->Tail=list->Current->Prev;
+    list->Current->Prev->Next=NULL;
+    list->Current=list->Current->Prev;
+    free(aux);
+    return NULL;
   }
   //Si el nodo se encuentra en cualquier posicion
-  list->current->prev->next=list->current->next;
-  list->current->next->prev=list->current->prev;
-  list->current=list->current->next;
-  return (void*)aux->data;
+  list->Current->Prev->Next=list->Current->Next;
+  list->Current->Next->Prev=list->Current->Prev;
+  list->Current=list->Current->Next;
+  free(aux);
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
+void * popBack(ListBomberos * list) {
+    list->Current = list->Tail;
+    return popCurrent(list);
+}
+
+void * popFront(ListBomberos * list) {
+    list->Current = list->Head;
+    return popCurrent(list);
+}
+
+void cleanList(ListBomberos * list) {
+    while (list->Head != NULL) {
         popFront(list);
     }
-}*/
+}
