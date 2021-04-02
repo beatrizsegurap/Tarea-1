@@ -44,8 +44,7 @@ const char*get_csv_field (char * tmp, int k) {
     return NULL;
 }
 
-
-void load(FILE *fp)
+void load(FILE *fp, ListBomberos *B)
 {
     // Cadena para guardar la linea completa del archivo csv
     char linea[1024];
@@ -54,19 +53,16 @@ void load(FILE *fp)
 
     int k=0;
     
-    //Creamos la lista con bomberos
-    ListBomberos * B = (ListBomberos*)malloc(sizeof(ListBomberos));
 
     while (fgets (linea, 1023, fp) != NULL) { // Se lee la linea
     //Creamos un bombero por linea de archivo y guardamos en el los datos 
         Bombero *bombero = createBombero();
-        int dia=0;
+        int dia=0, frecuencia=0;
         for(i=0;i<9;i++){
             const char *aux = get_csv_field(linea, i); 
             //Guardamos el Rut
             if(i==0){
                 bombero->Rut=(char*)aux;
-             printf("Rut: %s\n",bombero->Rut);
             }
             //Guardamos el nombre
             if(i==1){
@@ -77,18 +73,48 @@ void load(FILE *fp)
             if(i>=2){
                 if(!strcmp(aux,"SI")){
                     bombero->Disponibilidad[dia]=1;
+                    frecuencia+=1;
                 }
                 else{
                     bombero->Disponibilidad[dia]=0;
                 }
-                printf("dia %d: %d\n",dia,bombero->Disponibilidad[dia]);
                 dia+=1;               
             }
-
+            //guardamos la cantidad de dias a la semana que el bombero tiene disponibilidad
+            bombero->diasDisp=frecuencia;
         }
+
+        //Si es el primer bombero a agregar entonces lo agregamos al inicio y actualizamos el current de lo contrario lo agregamos al final de la lista
+        if(!B->Head){
+            pushFront(B,bombero);
+            B->Current=B->Head;
+        }
+        else{
+            pushBack(B,bombero);
+        }
+       
 
         printf("\n");
         k++; if(k==20) break;
     }
 
+}
+
+void ImportarBomberos(){
+    char nameFile[101];
+    FILE *file;
+
+    //Abrimos el archivo ingresado por el usuario
+    do{
+        printf("Ingrese el nombre del archivo sin extension: ");
+        scanf("%s",&nameFile);
+        strcat(nameFile,".csv");
+        file = fopen (nameFile, "r" ); 
+    }while(!file);
+
+
+    //Creamos la lista con bomberos
+    ListBomberos * B = createListBomberos();
+    //Cargamos los datos del archivo y creamos las estructuras
+    load(file,B);
 }

@@ -35,6 +35,8 @@ struct Bombero{
   const char * Rut;
   const char * Name;
   int Disponibilidad[7];
+  int Horario[7];
+  int diasDisp;
   Bombero * Next;
   Bombero * Prev;
 };
@@ -77,13 +79,13 @@ ListBomberos * createListBomberos() {
      return lista;
 }
 
-/* Funciones del TDA a implementar
+// Funciones del TDA a implementar
 
 void * firstList(ListBomberos * list) {
     if(!list->Head)return NULL;
     list->Current=list->Head;
 }
-
+/*
 void * nextList(ListBomberos * list) {
     if(!list->Current)return NULL;
     if(!list->Current->Next)return NULL;
@@ -104,10 +106,10 @@ void * prevList(ListBomberos * list){
     if(!list->Current->Prev)return NULL;
     list->Current=list->Current->Prev;
     //return (void*)list->current->data;
-}
+}*/
 
 void pushFront(ListBomberos * list, Bombero * b) {
-  printf("nombre s \n");
+
   if(!list->Head){
     list->Tail=b;
   }
@@ -118,21 +120,26 @@ void pushFront(ListBomberos * list, Bombero * b) {
   list->Head=b;
 }
 
-void pushBack(ListBomberos * list) {
-    list->Current = list->tail;
-    pushCurrent(list,data);
-}
 
-void pushCurrent(List * list, const void * data) {
-  Node* n=createNode(data);
-  n->next=list->current->next;
-  if(!list->current->next)list->tail=n;
-  else list->current->next->prev=n;
-  n->prev=list->current;
-  list->current->next=n;
+
+void pushCurrent(ListBomberos * list, Bombero * b){
+  b->Next=list->Current->Next;
+  //si agrega al final de la lista actualiza el tail
+  if(!list->Current->Next)list->Tail=b;
+  //De lo contrario lo agrega en la posicion cualquiera
+  else list->Current->Next->Prev=b;
+
+  b->Prev=list->Current;
+  list->Current->Next=b;
  
 }
 
+void pushBack(ListBomberos * list, Bombero * b) {
+    list->Current = list->Tail;
+    pushCurrent(list,b);
+}
+
+/*
 void * popFront(List * list) {
     list->current = list->head;
     return popCurrent(list);

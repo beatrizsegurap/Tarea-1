@@ -5,18 +5,8 @@
 
 int main()
 {
-    char nameFile[101];
-    FILE *file;
-    //Abrimos el archivo ingresado por el usuario
-    do{
-        printf("Ingrese el nombre del archivo sin extension: ");
-        scanf("%s",&nameFile);
-        strcat(nameFile,".csv");
-        file = fopen (nameFile, "r" ); 
-    }while(!file);
-
-    //Cargamos los datos del archivo y creamos las estructuras
-    load(file);
+    //Importamos los bomberos desdeun archivo csv
+    ImportarBomberos();
     
 
     return 0;
