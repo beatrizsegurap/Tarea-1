@@ -198,7 +198,7 @@ void BuscarRut1(ListBomberos * bombero)
   }
 }
 
-void AgregarBombero(ListBomberos * B){
+/*void AgregarBombero(ListBomberos * B){
     Bombero *bombero = createBombero();
     char name[20],rut[10];
     char* disp[10];
@@ -234,4 +234,4 @@ void AgregarBombero(ListBomberos * B){
     pushBack(B,bombero);
     printf("El bombero fue agregado con exito\n");
 
-}
+}*/
