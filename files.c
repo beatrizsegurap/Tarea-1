@@ -142,3 +142,55 @@ void ImportarBomberos(){
     printBomberos(B);
 
 }
+//Busca un Rut recibido y envia el current del rut encontrado
+void *BuscadorPorRut (ListBombero * bombero, char* Rut_ingresado )
+{
+  bombero->Current = bombero->Head;
+  while(strcmp(Rut_ingresado,bombero->Current->Rut)!=0 && bombero->Current->Next == NULL)
+  {
+    bombero->Current = bombero->Current->Next;
+  }
+  if(strcmp(Rut_ingresado,bombero->Current->Rut)!=0)
+  {
+    printf("El rut escrito, no fue encontrado");
+    return NULL;
+  }
+  return bombero->Current;
+}
+//Se ingresa un Rut del bombero que se quiere despedir, y elimina al Bombero 
+void Eliminarbombero (ListBombero *bombero)
+{
+  char Rut_ingresado[10];
+  printf("Ingrese el Rut del bombero que desea despedir:");
+  scanf("%s",Rut_ingresado);
+  while (strlen(Rut_ingresado)>9 || strlen(Rut_ingresado)<8)
+  {
+     printf("Rut mal ingresado, Porfavor escriba denuevo");
+     scanf("%s",Rut_ingresado);
+  }
+  bombero->Current = BuscadorPorRut(bombero, Rut_ingresado);
+  if(bombero->Current != NULL)
+  {
+    popCurrent(bombero->Current);
+    printf("Bombero Eliminado"); 
+  } 
+}
+//Es la Interfaz en la cual se ingresa el Rut y redirige a la funcion que busca el rut
+void BuscarRut1(ListBombero * bombero)
+{  
+  char Rut_ingresado[10];
+  printf("Ingrese el Rut de un bombero:");
+  scanf("%s",Rut_ingresado);
+  while (strlen(Rut_ingresado)>9 || strlen(Rut_ingresado)<8)
+  {
+     printf("Rut mal ingresado, Porfavor escriba denuevo");
+     scanf("%s",Rut_ingresado);
+  }
+  bombero->Current = BuscadorPorRut(bombero, Rut_ingresado);
+  if(bombero->Current != NULL)
+  {
+    printf("RUT: %s\nNOMBRE: %s\nDISPONIBILIDAD: ",bombero->Current->Rut,bombero->Current->Name);
+    printf("[ %d %d %d %d %d %d %d ]\n",B->Current->Disponibilidad[0],B->Current->Disponibilidad[1],B->Current->Disponibilidad[2],B->Current->Disponibilidad[3],B->Current->Disponibilidad[4],B->Current->Disponibilidad[5],B->Current->Disponibilidad[6]);
+
+  }
+}
