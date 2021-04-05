@@ -143,7 +143,7 @@ void ImportarBomberos(){
 
 }
 //Busca un Rut recibido y envia el current del rut encontrado
-void *BuscadorPorRut (ListBombero * bombero, char* Rut_ingresado )
+void *BuscadorPorRut (ListBomberos * bombero, char* Rut_ingresado )
 {
   bombero->Current = bombero->Head;
   while(strcmp(Rut_ingresado,bombero->Current->Rut)!=0 && bombero->Current->Next == NULL)
@@ -158,7 +158,7 @@ void *BuscadorPorRut (ListBombero * bombero, char* Rut_ingresado )
   return bombero->Current;
 }
 //Se ingresa un Rut del bombero que se quiere despedir, y elimina al Bombero 
-void Eliminarbombero (ListBombero *bombero)
+void Eliminarbombero (ListBomberos *bombero)
 {
   char Rut_ingresado[10];
   printf("Ingrese el Rut del bombero que desea despedir:");
@@ -171,12 +171,12 @@ void Eliminarbombero (ListBombero *bombero)
   bombero->Current = BuscadorPorRut(bombero, Rut_ingresado);
   if(bombero->Current != NULL)
   {
-    popCurrent(bombero->Current);
+    popCurrent(bombero);
     printf("Bombero Eliminado"); 
   } 
 }
 //Es la Interfaz en la cual se ingresa el Rut y redirige a la funcion que busca el rut
-void BuscarRut1(ListBombero * bombero)
+void BuscarRut1(ListBomberos * bombero)
 {  
   char Rut_ingresado[10];
   printf("Ingrese el Rut de un bombero:");
