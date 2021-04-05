@@ -190,7 +190,7 @@ void BuscarRut1(ListBombero * bombero)
   if(bombero->Current != NULL)
   {
     printf("RUT: %s\nNOMBRE: %s\nDISPONIBILIDAD: ",bombero->Current->Rut,bombero->Current->Name);
-    printf("[ %d %d %d %d %d %d %d ]\n",B->Current->Disponibilidad[0],B->Current->Disponibilidad[1],B->Current->Disponibilidad[2],B->Current->Disponibilidad[3],B->Current->Disponibilidad[4],B->Current->Disponibilidad[5],B->Current->Disponibilidad[6]);
+    printf("[ %d %d %d %d %d %d %d ]\n",bombero->Current->Disponibilidad[0],bombero->Current->Disponibilidad[1],bombero->Current->Disponibilidad[2],bombero->Current->Disponibilidad[3],bombero->Current->Disponibilidad[4],bombero->Current->Disponibilidad[5],bombero->Current->Disponibilidad[6]);
 
   }
 }
