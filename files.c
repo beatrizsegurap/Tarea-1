@@ -121,7 +121,9 @@ void printBomberos(ListBomberos * B){
     printf("[ %d %d %d %d %d %d %d ]\n",B->Tail->Disponibilidad[0],B->Tail->Disponibilidad[1],B->Tail->Disponibilidad[2],B->Tail->Disponibilidad[3],B->Tail->Disponibilidad[4],B->Tail->Disponibilidad[5],B->Tail->Disponibilidad[6]);
 }
 
-void ImportarBomberos(){
+
+//Funcion para importar los bomberos del archivo ingresado por el usuario y retorna la lista con bomberos
+ListBomberos* ImportarBomberos(){
     char nameFile[101];
     FILE *file;
 
@@ -139,14 +141,15 @@ void ImportarBomberos(){
     //Cargamos los datos del archivo y creamos las estructuras
     load(file,B);
 
-    printBomberos(B);
+    
+    return B;
 
 }
 //Busca un Rut recibido y envia el current del rut encontrado
 void *BuscadorPorRut (ListBomberos * bombero, char* Rut_ingresado )
 {
   bombero->Current = bombero->Head;
-  while(strcmp(Rut_ingresado,bombero->Current->Rut)!=0 && bombero->Current->Next == NULL)
+  while(strcmp(Rut_ingresado,bombero->Current->Rut)!=0 && bombero->Current->Next != NULL)
   {
     bombero->Current = bombero->Current->Next;
   }
@@ -161,30 +164,30 @@ void *BuscadorPorRut (ListBomberos * bombero, char* Rut_ingresado )
 void Eliminarbombero (ListBomberos *bombero)
 {
   char Rut_ingresado[10];
-  printf("Ingrese el Rut del bombero que desea despedir:");
-  scanf("%s",Rut_ingresado);
-  while (strlen(Rut_ingresado)>9 || strlen(Rut_ingresado)<8)
+  printf("Ingrese el Rut del bombero que desea despedir: ");
+  scanf("%s",&Rut_ingresado);
+  while (strlen(Rut_ingresado)>10 || strlen(Rut_ingresado)<9)
   {
-     printf("Rut mal ingresado, Porfavor escriba denuevo");
-     scanf("%s",Rut_ingresado);
+     printf("Rut mal ingresado, Porfavor escriba denuevo\n");
+     scanf("%s",&Rut_ingresado);
   }
   bombero->Current = BuscadorPorRut(bombero, Rut_ingresado);
   if(bombero->Current != NULL)
   {
     popCurrent(bombero);
-    printf("Bombero Eliminado"); 
+    printf("Bombero Eliminado\n"); 
   } 
 }
 //Es la Interfaz en la cual se ingresa el Rut y redirige a la funcion que busca el rut
 void BuscarRut1(ListBomberos * bombero)
 {  
   char Rut_ingresado[10];
-  printf("Ingrese el Rut de un bombero:");
-  scanf("%s",Rut_ingresado);
-  while (strlen(Rut_ingresado)>9 || strlen(Rut_ingresado)<8)
+  printf("Ingrese el Rut de un bombero: ");
+  scanf("%s",&Rut_ingresado);
+  while (strlen(Rut_ingresado)>10 || strlen(Rut_ingresado)<9)
   {
-     printf("Rut mal ingresado, Porfavor escriba denuevo");
-     scanf("%s",Rut_ingresado);
+     printf("Rut mal ingresado, Porfavor escriba denuevo\n");
+     scanf("%s",&Rut_ingresado);
   }
   bombero->Current = BuscadorPorRut(bombero, Rut_ingresado);
   if(bombero->Current != NULL)
@@ -193,4 +196,42 @@ void BuscarRut1(ListBomberos * bombero)
     printf("[ %d %d %d %d %d %d %d ]\n",bombero->Current->Disponibilidad[0],bombero->Current->Disponibilidad[1],bombero->Current->Disponibilidad[2],bombero->Current->Disponibilidad[3],bombero->Current->Disponibilidad[4],bombero->Current->Disponibilidad[5],bombero->Current->Disponibilidad[6]);
 
   }
+}
+
+void AgregarBombero(ListBomberos * B){
+    Bombero *bombero = createBombero();
+    char name[20],rut[10];
+    char* disp[10];
+    int i;
+    printf("Ingrese rut: ");
+    scanf("%s",&rut);
+    bombero->Rut=rut;
+    printf("Ingrese nombre: ");
+    scanf("%s",&name);
+    printf("Escriba SI o NO segun disponibilidad\n");
+    printf("Lunes: ");
+    scanf("%s",&disp[0]);
+    printf("Martes: ");
+    scanf("%s",&disp[1]);
+    printf("Miercoles: ");
+    scanf("%s",&disp[2]);
+    printf("Jueves: ");
+    scanf("%s",&disp[3]);
+    printf("Viernes: ");
+    scanf("%s",&disp[4]);
+    printf("Sabado: ");
+    scanf("%s",&disp[5]);
+    printf("Domingo: ");
+    scanf("%s",&disp[6]);
+    for(i=0;i<7;i++){
+        if(!strcmp(disp[i],"SI")){
+            bombero->Disponibilidad[i]=1;
+        }
+        else{
+            bombero->Disponibilidad[i]=0;
+        }
+    }
+    pushBack(B,bombero);
+    printf("El bombero fue agregado con exito\n");
+
 }
