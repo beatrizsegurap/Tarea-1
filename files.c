@@ -226,10 +226,9 @@ void BuscarRut1(ListBomberos * dato)
   dato->Current = BuscadorPorRut(dato, Rut_ingresado);
   if(dato->Current != NULL)
   {
-      printf("\n");
     printf("RUT: %s\nNOMBRE: %s\nDISPONIBILIDAD: ",dato->Current->Rut,dato->Current->Name);
     printf("[ %d %d %d %d %d %d %d ]\n",dato->Current->Disponibilidad[0],dato->Current->Disponibilidad[1],dato->Current->Disponibilidad[2],dato->Current->Disponibilidad[3],dato->Current->Disponibilidad[4],dato->Current->Disponibilidad[5],dato->Current->Disponibilidad[6]);
-    printf("\n");
+
   }
 }
 
