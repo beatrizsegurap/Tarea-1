@@ -23,7 +23,7 @@ int main()
         printf("7. Mostrar todos los bomberos\n");
         printf("0. Salir\n");
         scanf("%d", &op);
-
+        printf("\n");
         switch(op)
         {
             case 1:Agregardato(B);break;

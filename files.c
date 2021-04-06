@@ -182,10 +182,10 @@ void Agregardato(ListBomberos * dato)
 //Busca un Rut recibido y envia el current del rut encontrado
 void *BuscadorPorRut (ListBomberos * dato, char* Rut_ingresado )
 {
-  dato->Current = firstList(dato);
+  dato->Current = dato->Head;
   while(strcmp(Rut_ingresado,dato->Current->Rut)!=0 && dato->Current->Next != NULL)
   {
-    dato->Current = nextList(dato);
+    dato->Current = dato->Current->Next;
   }
   if(strcmp(Rut_ingresado,dato->Current->Rut)!=0)
   {
