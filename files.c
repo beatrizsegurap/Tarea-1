@@ -85,9 +85,9 @@ void load(FILE *fp, ListBomberos *B)
         }
 
         //Si es el primer bombero a agregar entonces lo agregamos al inicio y actualizamos el current de lo contrario lo agregamos al final de la lista
-        if(!B->Head){
+        if(vacio(B)){
             pushFront(B,bombero);
-            B->Current=B->Head;
+            firstList(B);
         }
         else{
             pushBack(B,bombero);
@@ -102,23 +102,17 @@ void load(FILE *fp, ListBomberos *B)
 
 void printBomberos(ListBomberos * B){
     //Imprimimos los bomberos por lo que apuntamos el current a la cabeza de la lista
-    firstList(B);
-    printf("RUT            NOMBRE                     DISPONIBILIDAD\n");
-    while(B->Current!=B->Tail){
-        printf("%-10s",B->Current->Rut);
-        printf("     ");
-        printf("%-16s",B->Current->Name);
-        printf("          ");
-        printf("[ %d %d %d %d %d %d %d ]\n",B->Current->Disponibilidad[0],B->Current->Disponibilidad[1],B->Current->Disponibilidad[2],B->Current->Disponibilidad[3],B->Current->Disponibilidad[4],B->Current->Disponibilidad[5],B->Current->Disponibilidad[6]);
-        B->Current=B->Current->Next;
-    }
+    Bombero* bActual = firstList(B);
 
-    //Imprimimos el ultimo
-    printf("%-10s",B->Tail->Rut);
-    printf("     ");
-    printf("%-16s",B->Tail->Name);
-    printf("          ");
-    printf("[ %d %d %d %d %d %d %d ]\n",B->Tail->Disponibilidad[0],B->Tail->Disponibilidad[1],B->Tail->Disponibilidad[2],B->Tail->Disponibilidad[3],B->Tail->Disponibilidad[4],B->Tail->Disponibilidad[5],B->Tail->Disponibilidad[6]);
+    printf("RUT            NOMBRE                     DISPONIBILIDAD\n");
+    while(bActual){
+        printf("%-10s",bActual->Rut);
+        printf("     ");
+        printf("%-16s",bActual->Name);
+        printf("          ");
+        printf("[ %d %d %d %d %d %d %d ]\n",bActual->Disponibilidad[0],bActual->Disponibilidad[1],bActual->Disponibilidad[2],bActual->Disponibilidad[3],bActual->Disponibilidad[4],bActual->Disponibilidad[5],bActual->Disponibilidad[6]);
+        bActual=nextList(B);
+    }
 }
 
 
@@ -233,40 +227,91 @@ void BuscarRut1(ListBomberos * bombero)
   }
 }
 
-/*void AgregarBombero(ListBomberos * B){
-    Bombero *bombero = createBombero();
-    char name[20],rut[10];
-    char* disp[10];
-    int i;
-    printf("Ingrese rut: ");
-    scanf("%s",&rut);
-    bombero->Rut=rut;
-    printf("Ingrese nombre: ");
-    scanf("%s",&name);
-    printf("Escriba SI o NO segun disponibilidad\n");
-    printf("Lunes: ");
-    scanf("%s",&disp[0]);
-    printf("Martes: ");
-    scanf("%s",&disp[1]);
-    printf("Miercoles: ");
-    scanf("%s",&disp[2]);
-    printf("Jueves: ");
-    scanf("%s",&disp[3]);
-    printf("Viernes: ");
-    scanf("%s",&disp[4]);
-    printf("Sabado: ");
-    scanf("%s",&disp[5]);
-    printf("Domingo: ");
-    scanf("%s",&disp[6]);
-    for(i=0;i<7;i++){
-        if(!strcmp(disp[i],"SI")){
-            bombero->Disponibilidad[i]=1;
-        }
-        else{
-            bombero->Disponibilidad[i]=0;
-        }
-    }
-    pushBack(B,bombero);
-    printf("El bombero fue agregado con exito\n");
+//Buscamos los bomberos disponibles el dia ingresado
 
-}*/
+int buscarDia(ListBomberos * B, char * dia){
+    Bombero *b = firstList(B);
+    if(!strcmp(dia,"lunes")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[0]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"martes")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[1]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"miercoles")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[2]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"jueves")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[3]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"viernes")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[4]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"sabado")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[5]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    if(!strcmp(dia,"domingo")){
+        printf("RUT                   NOMBRE\n");
+        do{
+           if(b->Disponibilidad[6]==1){
+               printf("%s           %s\n",b->Rut,b->Name);
+           }
+           b = nextList(B);
+        }while(b);
+        return 1;
+    }
+    else{
+        printf("El dia ingresado no es correcto\n");
+        return 0;
+    }
+}
+void buscarporDia(ListBomberos * B){
+    char dia[11];
+    int flag=0;
+    while(flag==0){
+        printf("Ingrese dia para buscar bomberos disponibles: ");
+        scanf("%s",&dia);
+        flag = buscarDia(B,dia);
+    }
+}

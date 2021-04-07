@@ -28,7 +28,7 @@ int main()
         {
             case 1:Agregardato(B);break;
             case 2:Eliminarbombero(B);break;
-            case 3:printf("no implementada\n");break;
+            case 3:buscarporDia(B);break;
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
             case 6:printf("no implementada\n");break;

@@ -1,6 +1,7 @@
 
 #include <string.h>
 #include <assert.h>
+#include <stdbool.h>
 //#include "list.h"
 
 
@@ -84,17 +85,20 @@ ListBomberos * createListBomberos() {
 void * firstList(ListBomberos * list) {
     if(!list->Head)return NULL;
     list->Current=list->Head;
+    return list->Current;
 }
 
 void * nextList(ListBomberos * list) {
     if(!list->Current)return NULL;
     if(!list->Current->Next)return NULL;
     list->Current=list->Current->Next;
+    return list->Current;
 }
 
 void * lastList(ListBomberos * list) {
     if(!list->Tail)return NULL;
     list->Current=list->Tail;
+    return list->Current;
 
 }
 
@@ -174,4 +178,11 @@ void cleanList(ListBomberos * list) {
     while (list->Head != NULL) {
         popFront(list);
     }
+}
+
+bool vacio(ListBomberos * list){
+  if(!list->Head){
+    return true;
+  }
+  return false;
 }
