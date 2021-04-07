@@ -26,7 +26,7 @@ int main()
 
         switch(op)
         {
-            case 1:printf("no implementada\n");break;
+            case 1:Agregardato(B);break;
             case 2:Eliminarbombero(B);break;
             case 3:printf("no implementada\n");break;
             case 4:BuscarRut1(B);break;

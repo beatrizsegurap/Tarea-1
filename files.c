@@ -145,6 +145,41 @@ ListBomberos* ImportarBomberos(){
     return B;
 
 }
+void Agregardato(ListBomberos * dato)
+{
+    Bombero *nuevoDato = createBombero();
+    printf("Ingrese un Rut:");
+    scanf("%s",nuevoDato->Rut);
+    printf("\nIngrese Nombre y Apellido:");
+    scanf("%s",nuevoDato->Name);
+    printf("\nEscriba SI o NO segun disponibilidad\n");
+    char cad[38] = "Lunes:Martes:Miercoles:Jueves:Viernes:";
+    char disp[3];
+    int i,j=0;
+    for(i=0 ; i<39 ; i++)
+    {
+        printf("%c",cad[i]); 
+        if(cad[i]== ':')
+        {
+            scanf("%s",disp);
+            if(strcmp(disp,"SI")==0)
+            {
+                nuevoDato->Disponibilidad[j]= 1;
+                if(j==7)break;
+                j++;
+            }
+            if(strcmp(disp,"NO")==0)
+            {
+                nuevoDato->Disponibilidad[j]= 0;
+                if(j==7)break;
+                j++;
+            }
+            printf("\n");
+        }
+    }
+    pushBack(dato,nuevoDato);
+    printf("Nuevo dato agregado con exito");
+}
 //Busca un Rut recibido y envia el current del rut encontrado
 void *BuscadorPorRut (ListBomberos * bombero, char* Rut_ingresado )
 {
