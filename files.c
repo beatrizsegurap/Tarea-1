@@ -169,14 +169,14 @@ void Agregardato(ListBomberos * dato)
             if(strcmp(disp,"SI")==0)
             {
                 nuevoDato->Disponibilidad[j]= 1;
-                printf("\n**Entro**\n");
+                //printf("\n**Entro**\n");
                 if(j==6)break;
                 j++;
             }
             else
             {
                 nuevoDato->Disponibilidad[j]= 0;
-                printf("\n**Entro2**\n");
+                //printf("\n**Entro2**\n");
                 if(j==6)break;
                 j++;
             }
