@@ -147,16 +147,16 @@ ListBomberos* ImportarBomberos(){
 }
 void Agregardato(ListBomberos * dato)
 {
-    Bombero *nuevoDato = createBombero();
+    Bombero * nuevoDato = createBombero();
     printf("Ingrese un Rut:");
     scanf("%s",&nuevoDato->Rut);
     printf("\nIngrese Nombre y Apellido:");
     scanf("%s",&nuevoDato->Name);
     printf("\nEscriba SI o NO segun disponibilidad\n");
-    char cad[38] = "Lunes:Martes:Miercoles:Jueves:Viernes:";
+    char cad[55] = "Lunes:Martes:Miercoles:Jueves:Viernes:Sabado:Domingo:";
     char disp[3];
     int i,j=0;
-    for(i=0 ; i<39 ; i++)
+    for(i=0 ; i<55 ; i++)
     {
         printf("%c",cad[i]); 
         if(cad[i]== ':')
@@ -190,7 +190,7 @@ void *BuscadorPorRut (ListBomberos * bombero, char* Rut_ingresado )
   }
   if(strcmp(Rut_ingresado,bombero->Current->Rut)!=0)
   {
-    printf("El rut escrito, no fue encontrado");
+    printf("El rut escrito, no fue encontrado\n");
     return NULL;
   }
   return bombero->Current;
