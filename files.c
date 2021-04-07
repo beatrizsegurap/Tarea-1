@@ -153,10 +153,10 @@ void Agregardato(ListBomberos * dato)
     printf("\nIngrese Nombre y Apellido:");
     scanf("%s",&nuevoDato->Name);
     printf("\nEscriba SI o NO segun disponibilidad\n");
-    char cad[55] = "Lunes:Martes:Miercoles:Jueves:Viernes:Sabado:Domingo:";
+    char cad[53] = "Lunes:Martes:Miercoles:Jueves:Viernes:Sabado:Domingo:";
     char disp[3];
     int i,j=0;
-    for(i=0 ; i<55 ; i++)
+    for(i=0 ; i<53 ; i++)
     {
         printf("%c",cad[i]); 
         if(cad[i]== ':')
