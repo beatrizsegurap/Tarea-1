@@ -149,9 +149,9 @@ void Agregardato(ListBomberos * dato)
 {
     Bombero *nuevoDato = createBombero();
     printf("Ingrese un Rut:");
-    scanf("%s",nuevoDato->Rut);
+    scanf("%s",&nuevoDato->Rut);
     printf("\nIngrese Nombre y Apellido:");
-    scanf("%s",nuevoDato->Name);
+    scanf("%s",&nuevoDato->Name);
     printf("\nEscriba SI o NO segun disponibilidad\n");
     char cad[38] = "Lunes:Martes:Miercoles:Jueves:Viernes:";
     char disp[3];
@@ -161,7 +161,7 @@ void Agregardato(ListBomberos * dato)
         printf("%c",cad[i]); 
         if(cad[i]== ':')
         {
-            scanf("%s",disp);
+            scanf("%s",&disp);
             if(strcmp(disp,"SI")==0)
             {
                 nuevoDato->Disponibilidad[j]= 1;
