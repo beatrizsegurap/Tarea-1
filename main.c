@@ -9,7 +9,7 @@ int main()
     //Importamos los bomberos desdeun archivo csv
     B=ImportarBomberos();
     int op=1;
-
+    horario* h;
 //MENU
     printf("************ESTACION DE BOMBEROS************\n\n");
     while(op!=0)
@@ -32,7 +32,7 @@ int main()
             case 3:buscarporDia(B);break;
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
-            case 6:crearHorario(B);break;
+            case 6:h=crearHorario(B);break;
             case 7:printf("no implementada\n");break;
             case 8:printBomberos(B);break;
         }
