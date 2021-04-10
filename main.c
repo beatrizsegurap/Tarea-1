@@ -338,33 +338,62 @@ void buscarporDia(List * B){
     }
     printf("\n");
 }
-/*
-Horario* crearHorario(List* B){
+//--------------------------------------------------------
+typedef struct{
+char nombreD[11];
+char rut[5][12];
+char name[5][30];
+int disp[5];
+int lugares;
+}dia;
+
+List* crearHorario(List* B){
+//creamos la lista del horario
+List* H=createList();
+//memoria y el nombre para cada uno de los dias.
+dia* lunes=(dia*)malloc(sizeof(dia));
+strcpy(lunes->nombreD,"Lunes");
+dia* martes=(dia*)malloc(sizeof(dia));
+strcpy(martes->nombreD,"Martes");
+dia* miercoles=(dia*)malloc(sizeof(dia));
+strcpy(miercoles->nombreD,"Miercoles");
+dia* jueves=(dia*)malloc(sizeof(dia));
+strcpy(jueves->nombreD,"Jueves");
+dia* viernes=(dia*)malloc(sizeof(dia));
+strcpy(viernes->nombreD,"Viernes");
+dia* sabado=(dia*)malloc(sizeof(dia));
+strcpy(sabado->nombreD,"Sabado");
+dia* domingo=(dia*)malloc(sizeof(dia));
+strcpy(domingo->nombreD,"Domingo");
+//añadimos los dias a la lista.
+Pushfront(H,lunes);
+pushBack(H,martes);
+pushBack(H,miercoles);
+pushBack(H,jueves);
+pushBack(H,viernes);
+pushBack(H,sabado);
+pushBack(H,domingo);
+//variables para los ciclos
+dia* aux=(dia*)malloc(sizeof(dia));
+Bombero* bomberoaux=(Bombero*)malloc(sizeof(Bombero));
 int i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
-Bombero* bomberoaux=createBombero();
-Horario horario[7];
-strcpy(horario[0]->dia,"Lunes");
-strcpy(horario[1]->dia,"Martes");
-strcpy(horario[2]->dia,"Miercoles");
-strcpy(horario[3]->dia,"Jueves");
-strcpy(horario[4]->dia,"Viernes");
-strcpy(horario[5]->dia,"Sabado");
-strcpy(horario[6]->dia,"Domingo");
+
 //Este ciclo pasara por todos los dias de la semana del horario generandolos
+aux=firstList(H);
 for(i=0; i<=6 ;i++){
   bomberoaux=firstList(B);
 //lugares es una variable que nos dira cuantos bomberos ya tenemos asignados para dicho dia,permitiendo remplazarlos o avisar si no hay suficientes una vez generado el horario
-  horario[i]->lugares=0;
+  aux->lugares=0;
   while(bomberoaux != NULL){
   //pasara por toda la lista
 	  if(bomberoaux->Disponibilidad[i]==1){
       //si el bombero tiene disponibilidad entrara
-		  if(horario[i]->lugares<4){
+		  if(aux->lugares<4){
         //Si el dia no esta completo lo añade altiro
-			  strcpy(horario[i]->rut[horario[i]->lugares],bomberoaux->Rut);
-			  strcpy(horario[i]->name[horario[i]->lugares],bomberoaux->Name);
-			  horario[i]->disp[horario[i]->lugares]=bomberoaux->diasDisp;
-			  horario[i]->lugares+=1;
+			  strcpy(aux->rut[aux->lugares],bomberoaux->Rut);
+			  strcpy(aux->name[aux->lugares],bomberoaux->Name);
+			  aux->disp[aux->lugares]=bomberoaux->diasDisp;
+			  aux->lugares+=1;
 			  }
 		    else{//encaso de que el dia este completo, compara todos los bomberos basandose en sus dias de disponibilidad con el resto priorizando a los bomberos con menor tiempo disponible
 			    d=bomberoaux->diasDisp;
@@ -372,15 +401,15 @@ for(i=0; i<=6 ;i++){
 			    p=0;
           //Esta variable guarda la posicion en la cual, se encuentra almacenado el bombero de turno que sera remplazado
 			    for(j=0;j<5;j++){
-				    if(d < horario[i]->disp[j]){
-					  d=horario[i]->disp[j];
+				    if(d < aux->disp[j]){
+					  d=aux->disp[j];
 					  p=j;
 					  }
 			    }	
         }
       if(p != 0){
-				strcpy(horario[i]->rut[p],bomberoaux->Rut);
-				strcpy(horario[i]->name[p],bomberoaux->Name);
+				strcpy(aux->rut[p],bomberoaux->Rut);
+				strcpy(aux->name[p],bomberoaux->Name);
 			}	
     }
     //Termina el scaneo por la lista una vez se llega al ultimo dato.
@@ -388,9 +417,12 @@ for(i=0; i<=6 ;i++){
     //pasa al siguiente bombero.
     else bomberoaux=nextList(B);
     }
+aux=nextList(H);
 }
-return *horario;// Devuelve un puntero al horario que se guardara en main.
-}*/
+return H;// Devuelve un puntero al horario que se guardara en main.
+}
+
+
 //---------------------------------------------------------------------------
 
 
@@ -402,7 +434,7 @@ int main()
     //Importamos los bomberos desdeun archivo csv
     B=ImportarBomberos();
     int op=1;
-    //horario* h;
+    List* H;
 //MENU
     printf("************ESTACION DE BOMBEROS************\n\n");
     while(op!=0)
@@ -425,7 +457,7 @@ int main()
             case 3:buscarporDia(B);break;
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
-            case 6:/*h=crearHorario(B);*/break;
+            case 6:H=crearHorario(B);break;
             case 7:printf("no implementada\n");break;
             case 8:printBomberos(B);break;
         }
