@@ -2,6 +2,7 @@
 #include <string.h>
 #include <assert.h>
 #include <stdbool.h>
+#include <stdlib.h>
 //#include "list.h"
 
 
@@ -78,6 +79,8 @@ ListBomberos * createListBomberos() {
      return lista;
 }
 
+typedef struct Horario Horario;
+
 struct Horario {
 char dia[11];
 char rut[5][12];
@@ -86,9 +89,9 @@ int disp[5];
 int lugares;
 };
 
-Horario* crearHorario(Listbomberos* B){
-int=i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
-Bombero* bomberoaux=createBombero;
+Horario* crearHorario(ListBomberos* B){
+int i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
+Bombero* bomberoaux=createBombero();
 Horario* horario[7];
 strcopy(horario[0]->dia,"Lunes");
 strcopy(horario[1]->dia,"Martes");
@@ -97,9 +100,8 @@ strcopy(horario[3]->dia,"Jueves");
 strcopy(horario[4]->dia,"Viernes");
 strcopy(horario[5]->dia,"Sabado");
 strcopy(horario[6]->dia,"Domingo");
-int=i,j,p,d;
 //Este ciclo pasara por todos los dias de la semana del horario generandolos
-for(i=0,i<=6,i++){
+for(i=0; i<=6 ;i++){
   bomberoaux=firstList(B);
 //lugares es una variable que nos dira cuantos bomberos ya tenemos asignados para dicho dia,permitiendo remplazarlos o avisar si no hay suficientes una vez generado el horario
   horario[i]->lugares=0;
@@ -109,8 +111,8 @@ for(i=0,i<=6,i++){
       //si el bombero tiene disponibilidad entrara
 		  if(horario[i]->lugares<4){
         //Si el dia no esta completo lo añade altiro
-			  strcpy(horario[i]->rut[horario[i]->lugares],bomberoaux->rut);
-			  strcpy(horario[i]->name[horario[i]->lugares],bomberoaux->name);
+			  strcpy(horario[i]->rut[horario[i]->lugares],bomberoaux->Rut);
+			  strcpy(horario[i]->name[horario[i]->lugares],bomberoaux->Name);
 			  horario[i]->disp[horario[i]->lugares]=bomberoaux->diasDisp;
 			  horario[i]->lugares+=1;
 			  }
@@ -127,10 +129,10 @@ for(i=0,i<=6,i++){
 			    }	
         }
       if(p != 0){
-				strcpy(horario[i]->rut[p],bomberoaux->rut);
-				strcpy(horario[i]->name[p],bomberoaux->name);
+				strcpy(horario[i]->rut[p],bomberoaux->Rut);
+				strcpy(horario[i]->name[p],bomberoaux->Name);
 			}	
-	  if(bomberoaux->next==NULL)Break;
+	  if(bomberoaux->Next==NULL)break;
 //Termina el scaneo por la lista una vez se llega al ultimo dato.
 	bomberoaux=nextList(B);
 //pasa al siguiente bombero.
