@@ -20,7 +20,8 @@ int main()
         printf("4. Buscar bombero por rut\n");
         printf("5. Modificar disponibilidad de un bombero\n");
         printf("6. Crear horario de la semana\n");
-        printf("7. Mostrar todos los bomberos\n");
+        printf("7. Mostrar horario semanal\n");
+        printf("8. Mostrar todos los bomberos\n");
         printf("0. Salir\n");
         scanf("%d", &op);
 
@@ -31,8 +32,9 @@ int main()
             case 3:buscarporDia(B);break;
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
-            case 6:printf("no implementada\n");break;
-            case 7:printBomberos(B);break;
+            case 6:crearHorario(B);break;
+            case 7:printf("no implementada\n");break;
+            case 8:printBomberos(B);break;
         }
     }
     

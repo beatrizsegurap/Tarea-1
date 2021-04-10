@@ -52,8 +52,6 @@ struct ListBomberos{
   Bombero * Tail;
 };
 
-
-
 /*
   private function declarations
 */
@@ -79,6 +77,71 @@ ListBomberos * createListBomberos() {
     
      return lista;
 }
+
+struct Horario {
+char dia[11];
+char rut[5][12];
+char name[5][30];
+int disp[5];
+int lugares;
+};
+
+Horario* crearHorario(Listbomberos* B){
+int=i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
+Bombero* bomberoaux=createBombero;
+Horario* horario[7];
+strcopy(horario[0]->dia,"Lunes");
+strcopy(horario[1]->dia,"Martes");
+strcopy(horario[2]->dia,"Miercoles");
+strcopy(horario[3]->dia,"Jueves");
+strcopy(horario[4]->dia,"Viernes");
+strcopy(horario[5]->dia,"Sabado");
+strcopy(horario[6]->dia,"Domingo");
+int=i,j,p,d;
+//Este ciclo pasara por todos los dias de la semana del horario generandolos
+for(i=0,i<=6,i++){
+  bomberoaux=firstList(B);
+//lugares es una variable que nos dira cuantos bomberos ya tenemos asignados para dicho dia,permitiendo remplazarlos o avisar si no hay suficientes una vez generado el horario
+  horario[i]->lugares=0;
+  while(bomberoaux != NULL){
+  //pasara por toda la lista
+	  if(bomberoaux->Disponibilidad[i]==1){
+      //si el bombero tiene disponibilidad entrara
+		  if(horario[i]->lugares<4){
+        //Si el dia no esta completo lo añade altiro
+			  strcpy(horario[i]->rut[horario[i]->lugares],bomberoaux->rut);
+			  strcpy(horario[i]->name[horario[i]->lugares],bomberoaux->name);
+			  horario[i]->disp[horario[i]->lugares]=bomberoaux->diasDisp;
+			  horario[i]->lugares+=1;
+			  }
+		    else{//encaso de que el dia este completo, compara todos los bomberos basandose en sus dias de disponibilidad con el resto priorizando a los bomberos con menor tiempo disponible
+			    d=bomberoaux->diasDisp;
+          //para comparar disponibilidad
+			    p=0;
+          //Esta variable guarda la posicion en la cual, se encuentra almacenado el bombero de turno que sera remplazado
+			    for(j=0;j<5;j++){
+				    if(d < horario[i]->disp[j]){
+					  d=horario[i]->disp[j];
+					  p=j;
+					  }
+			    }	
+        }
+      if(p != 0){
+				strcpy(horario[i]->rut[p],bomberoaux->rut);
+				strcpy(horario[i]->name[p],bomberoaux->name);
+			}	
+	  if(bomberoaux->next==NULL)Break;
+//Termina el scaneo por la lista una vez se llega al ultimo dato.
+	bomberoaux=nextList(B);
+//pasa al siguiente bombero.
+	}
+}
+}
+return *horario;// Devuelve un puntero al horario que se guardara en main.
+}
+
+
+
 
 // Funciones del TDA a implementar
 
