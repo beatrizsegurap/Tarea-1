@@ -159,7 +159,7 @@ void agregarBombero(List * B)
     scanf("%s",rut);
     getchar();
     bombero->Rut=rut;
-    printf("\nIngrese Nombre y Apellido: ");
+    printf("Ingrese Nombre y Apellido: ");
     scanf("%[^'\n']s",name);
     getchar();
     bombero->Name=name;
@@ -191,7 +191,7 @@ void agregarBombero(List * B)
         
     } 
     pushBack(B,bombero);
-    printf("\nNuevo dato agregado con exito\n");
+    printf("\nNuevo bombero agregado con exito\n");
 }
 //Busca un Rut recibido y envia el current del rut encontrado
 void *BuscadorPorRut (List * B, char* Rut_ingresado )
@@ -233,7 +233,7 @@ void BuscarRut1(List * B)
 {  
   char Rut_ingresado[10];
   Bombero* b;
-  printf("Ingrese el Rut de un bombero: ");
+  printf("\nIngrese el Rut de un bombero: ");
   scanf("%s",&Rut_ingresado);
   while (strlen(Rut_ingresado)>10 || strlen(Rut_ingresado)<9)
   {
@@ -251,7 +251,7 @@ void BuscarRut1(List * B)
 
 //Buscamos los bomberos disponibles el dia ingresado
 
-int buscarDia(List * B, char * dia){
+bool buscarDia(List * B, char * dia){
     Bombero *b = firstList(B);
     if(!strcmp(dia,"lunes")){
         printf("RUT                   NOMBRE\n");
@@ -261,7 +261,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"martes")){
         printf("RUT                   NOMBRE\n");
@@ -271,7 +271,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"miercoles")){
         printf("RUT                   NOMBRE\n");
@@ -281,7 +281,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"jueves")){
         printf("RUT                   NOMBRE\n");
@@ -291,7 +291,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"viernes")){
         printf("RUT                   NOMBRE\n");
@@ -301,7 +301,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"sabado")){
         printf("RUT                   NOMBRE\n");
@@ -311,7 +311,7 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     if(!strcmp(dia,"domingo")){
         printf("RUT                   NOMBRE\n");
@@ -321,21 +321,22 @@ int buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
-        return 1;
+        return true;
     }
     else{
         printf("El dia ingresado no es correcto\n");
-        return 0;
+        return false;
     }
 }
 void buscarporDia(List * B){
     char dia[11];
-    int flag=0;
-    while(flag==0){
+    bool flag=false;
+    while(!flag){
         printf("Ingrese dia para buscar bomberos disponibles: ");
         scanf("%s",&dia);
         flag = buscarDia(B,dia);
     }
+    printf("\n");
 }
 /*
 Horario* crearHorario(List* B){
