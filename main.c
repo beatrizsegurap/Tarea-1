@@ -580,8 +580,8 @@ List* crearHorario(List* B){
             //si el bombero tiene disponibilidad entrara
                 if(aux->lugares<5){
                 //Si el dia no esta completo lo añade altiro
-                    strcpy(aux->rut[aux->lugares],bomberoaux->Rut);
                     strcpy(aux->name[aux->lugares],bomberoaux->Name);
+                    strcpy(aux->rut[aux->lugares],bomberoaux->Rut);
                     aux->disp[aux->lugares]=bomberoaux->diasDisp;
                     aux->lugares+=1;
                 }
@@ -598,8 +598,8 @@ List* crearHorario(List* B){
                     }	
                 }
                 if(p != 0){
-                    strcpy(aux->rut[p],bomberoaux->Rut);
                     strcpy(aux->name[p],bomberoaux->Name);
+                    strcpy(aux->rut[p],bomberoaux->Rut);
                 }	
             }
             //Termina el scaneo por la lista una vez se llega al ultimo dato.
