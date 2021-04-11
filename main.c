@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "list.c"
+#include "list.h"
 
 
 //Creamos la estructura bombero y dia para el horario
@@ -459,25 +459,6 @@ List* crearHorario(List* B){
 }
 
 void mostrarHorario(List* H){
-<<<<<<< Updated upstream
-printf("El horario de esta semana es:\n");
-dia* diaux=(dia*)malloc(sizeof(dia));
-diaux=firstList(H);
-int i,x,z;//i es para el contador del ciclo, x sera una variable la cual nos dira cuantos bomberos no estan disponibles
-for(i=0;i<=6;i++){
-    printf("------%s------\n",diaux->nombreD);
-    for(z=0;z<diaux->lugares;z++){
-        printf("Nombre:%s     Rut: %s\n",diaux->name[z],diaux->rut[z]);
-    }
-    if(diaux->lugares<5){
-    for(x=5-diaux->lugares;x+z<=5;x++){
-        printf("-No hay suficiente personal disponible\n");
-    }
-    }
-    printf("\n");
-    diaux=nextList(H);
-}
-=======
     printf("---------------------------------------------------------------------\n");
     if(!H)printf("Aun no se ha creado un horario\n");
     else{
@@ -495,14 +476,15 @@ for(i=0;i<=6;i++){
                 printf("     ");
                 printf("%-16s\n",diaux->name[z]);
             }
-            for(x=4-diaux->lugares;x+z<=3;x++){
-                printf("-No hay suficiente personal disponible\n");
+            if(diaux->lugares<5){
+                for(x=4-diaux->lugares;x+z<=3;x++){
+                    printf("-No hay suficiente personal disponible\n");
+                }
             }
             printf("\n");
             diaux=nextList(H);
         }
     }
->>>>>>> Stashed changes
 }
 
 //---------------------------------------------------------------------------
