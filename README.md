@@ -42,7 +42,7 @@ INTEGRANTES:
     Puntaje:0
 
 * Jose Ignacio Pailamilla Montecinos
-    Aspectos positivos: buen manejo del tiempo
+    Aspectos positivos: buen manejo del tiempo y las estructuras tda.
     Mejorar: el uso de algunas estructuras, y identificar los errores.
     Puntaje:0
  
