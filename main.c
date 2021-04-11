@@ -617,7 +617,7 @@ List* crearHorario(List* B){
 
 void mostrarHorario(List* H){
     printf("---------------------------------------------------------------------\n");
-    if(!H)printf("Aun no se ha creado un horario\n");
+    if(!H)printf("Aun no se ha creado un horario\n---------------------------------------------------------------------\n");
     else{
         printf("El horario de esta semana es:\n");
         dia* diaux=(dia*)malloc(sizeof(dia));
