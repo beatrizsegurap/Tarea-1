@@ -581,7 +581,9 @@ List* crearHorario(List* B){
                 if(aux->lugares<5){
                 //Si el dia no esta completo lo añade altiro
                     strcpy(aux->name[aux->lugares],bomberoaux->Name);
+                    printf("%s",aux->name[aux->lugares]);
                     strcpy(aux->rut[aux->lugares],bomberoaux->Rut);
+                    printf("%s",aux->rut[aux->lugares]);
                     aux->disp[aux->lugares]=bomberoaux->diasDisp;
                     aux->lugares+=1;
                 }//------------------------------------------------------
