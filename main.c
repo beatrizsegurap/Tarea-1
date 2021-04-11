@@ -211,7 +211,7 @@ void *BuscadorPorRut (List * B, char* Rut_ingresado )
       b=nextList(B);
       if(!b)break;
   }
-  if(strcmp(Rut_ingresado,b->Rut)!=0)
+  if(!b)
   {
     printf("El rut escrito, no fue encontrado\n");
     return NULL;
@@ -426,14 +426,14 @@ List* crearHorario(List* B){
 }
 
 void mostrarHorario(List* H){
-printf("El horario de esta semana es:\n")
+printf("El horario de esta semana es:\n");
 dia* diaux=(dia*)malloc(sizeof(dia));
 diaux=firstList(H);
 int i,x,z;//i es para el contador del ciclo, x sera una variable la cual nos dira cuantos bomberos no estan disponibles
-for(i=0;i=<6;i++){
+for(i=0;i<=6;i++){
     printf("------%s------\n",diaux->nombreD);
     for(z=0;z<diaux->lugares;z++){
-        printf("Nombre:%s     Rut:%s\n",diaux->name[z],diaux->rut[z]);
+        printf("Nombre:%s     Rut: %s\n",diaux->name[z],diaux->rut[z]);
     }
     for(x=4-diaux->lugares;x+z<=4;x++){
         printf("-No hay suficiente personal disponible\n");
