@@ -123,7 +123,7 @@ void load(FILE *fp, List *B)
 void printBomberos(List * B){
     //Imprimimos los bomberos por lo que apuntamos el current a la cabeza de la lista
     Bombero* bActual = firstList(B);
-
+    printf("---------------------------------------------------------------------\n");
     printf("RUT            NOMBRE                     DISPONIBILIDAD\n");
     while(bActual){
         printf("%-10s",bActual->Rut);
@@ -133,6 +133,7 @@ void printBomberos(List * B){
         printf("[ %d %d %d %d %d %d %d ]\n",bActual->Disponibilidad[0],bActual->Disponibilidad[1],bActual->Disponibilidad[2],bActual->Disponibilidad[3],bActual->Disponibilidad[4],bActual->Disponibilidad[5],bActual->Disponibilidad[6]);
         bActual=nextList(B);
     }
+    printf("---------------------------------------------------------------------\n");
 }
 
 
@@ -161,17 +162,21 @@ List* ImportarBomberos(){
 }
 void agregarBombero(List * B)
 {
+    //Creamos el bombero nuevo y reservamos memoria para los datos a ingresar
     Bombero * bombero = (Bombero*) malloc (sizeof(Bombero));
     char* rut=(char*) malloc(12*sizeof(char));
     char* name=(char*) malloc(30*sizeof(char));
+    printf("---------------------------------------------------------------------\n");
     printf("Ingrese un Rut: ");
     scanf("%s",rut);
     getchar();
     bombero->Rut=rut;
+
     printf("Ingrese Nombre y Apellido: ");
     scanf("%[^'\n']s",name);
     getchar();
     bombero->Name=name;
+
     printf("\nEscriba SI o NO segun disponibilidad\n");
     char cad[53] = "Lunes:Martes:Miercoles:Jueves:Viernes:Sabado:Domingo:";
     char disp[3];
@@ -181,7 +186,6 @@ void agregarBombero(List * B)
         printf("%c",cad[i]); 
         if(cad[i] == 58)
         {
-            //getchar();
             scanf("%s",&disp);
             
             if(strcmp(disp,"SI")==0)
@@ -200,7 +204,9 @@ void agregarBombero(List * B)
         
     } 
     pushBack(B,bombero);
+    printf("---------------------------------------------------------------------\n");
     printf("\nNuevo bombero agregado con exito\n");
+    printf("---------------------------------------------------------------------\n");
 }
 //Busca un Rut recibido y envia el current del rut encontrado
 void *BuscadorPorRut (List * B, char* Rut_ingresado )
@@ -234,7 +240,9 @@ void Eliminarbombero (List *B)
   if(b != NULL)
   {
     popCurrent(B);
+    printf("---------------------------------------------------------------------\n");
     printf("Bombero Eliminado\n"); 
+    printf("---------------------------------------------------------------------\n");
   } 
 }
 //Es la Interfaz en la cual se ingresa el Rut y redirige a la funcion que busca el rut
@@ -252,9 +260,14 @@ void BuscarRut1(List * B)
   b = BuscadorPorRut(B, Rut_ingresado);
   if(b != NULL)
   {
-    printf("RUT: %s\nNOMBRE: %s\nDISPONIBILIDAD: ",b->Rut,b->Name);
+    printf("---------------------------------------------------------------------\n");
+    printf("RUT            NOMBRE                     DISPONIBILIDAD\n");
+    printf("%-10s",b->Rut);
+    printf("     ");
+    printf("%-16s",b->Name);
+    printf("          ");
     printf("[ %d %d %d %d %d %d %d ]\n",b->Disponibilidad[0],b->Disponibilidad[1],b->Disponibilidad[2],b->Disponibilidad[3],b->Disponibilidad[4],b->Disponibilidad[5],b->Disponibilidad[6]);
-
+    printf("---------------------------------------------------------------------\n");
   }
 }
 
@@ -263,6 +276,7 @@ void BuscarRut1(List * B)
 bool buscarDia(List * B, char * dia){
     Bombero *b = firstList(B);
     if(!strcmp(dia,"lunes")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[0]==1){
@@ -270,9 +284,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"martes")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[1]==1){
@@ -280,9 +296,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"miercoles")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[2]==1){
@@ -290,9 +308,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"jueves")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[3]==1){
@@ -300,9 +320,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"viernes")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[4]==1){
@@ -310,9 +332,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"sabado")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[5]==1){
@@ -320,9 +344,11 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     if(!strcmp(dia,"domingo")){
+        printf("---------------------------------------------------------------------\n");
         printf("RUT                   NOMBRE\n");
         do{
            if(b->Disponibilidad[6]==1){
@@ -330,10 +356,13 @@ bool buscarDia(List * B, char * dia){
            }
            b = nextList(B);
         }while(b);
+        printf("---------------------------------------------------------------------\n");
         return true;
     }
     else{
-        printf("El dia ingresado no es correcto\n");
+        printf("---------------------------------------------------------------------\n");
+        printf("                    El dia ingresado no es correcto                  \n");
+        printf("---------------------------------------------------------------------\n");
         return false;
     }
 }
@@ -341,6 +370,7 @@ void buscarporDia(List * B){
     char dia[11];
     bool flag=false;
     while(!flag){
+        printf("---------------------------------------------------------------------\n");
         printf("Ingrese dia para buscar bomberos disponibles: ");
         scanf("%s",&dia);
         flag = buscarDia(B,dia);
@@ -422,10 +452,14 @@ List* crearHorario(List* B){
         }
         aux=nextList(H);
     }
+    printf("---------------------------------------------------------------------\n");
+    printf("                   SE CREO EL HORARIO EXITOSAMENTE                   \n");
+    printf("---------------------------------------------------------------------\n");
     return H;// Devuelve un puntero al horario que se guardara en main.
 }
 
 void mostrarHorario(List* H){
+<<<<<<< Updated upstream
 printf("El horario de esta semana es:\n");
 dia* diaux=(dia*)malloc(sizeof(dia));
 diaux=firstList(H);
@@ -443,6 +477,32 @@ for(i=0;i<=6;i++){
     printf("\n");
     diaux=nextList(H);
 }
+=======
+    printf("---------------------------------------------------------------------\n");
+    if(!H)printf("Aun no se ha creado un horario\n");
+    else{
+        printf("El horario de esta semana es:\n");
+        dia* diaux=(dia*)malloc(sizeof(dia));
+        diaux=firstList(H);
+        int i,x,z;//i es para el contador del ciclo, x sera una variable la cual nos dira cuantos bomberos no estan disponibles
+        for(i=0;i<=6;i++){
+            printf("---------------------------------------------------------------------\n");
+            printf("                              %s                          \n",diaux->nombreD);
+            printf("---------------------------------------------------------------------\n");
+            printf("RUT            NOMBRE\n");
+            for(z=0;z<diaux->lugares;z++){
+                printf("%-10s",diaux->rut[z]);
+                printf("     ");
+                printf("%-16s\n",diaux->name[z]);
+            }
+            for(x=4-diaux->lugares;x+z<=3;x++){
+                printf("-No hay suficiente personal disponible\n");
+            }
+            printf("\n");
+            diaux=nextList(H);
+        }
+    }
+>>>>>>> Stashed changes
 }
 
 //---------------------------------------------------------------------------
@@ -456,7 +516,7 @@ int main()
     //Importamos los bomberos desdeun archivo csv
     B=ImportarBomberos();
     int op=1;
-    List* H;
+    List* H=NULL;
 //MENU
     printf("************ESTACION DE BOMBEROS************\n\n");
     while(op!=0)
@@ -480,7 +540,7 @@ int main()
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
             case 6:H=crearHorario(B);break;
-            case 7:mostrarHorario(H);;break;
+            case 7:mostrarHorario(H);break;
             case 8:printBomberos(B);break;
         }
     }
