@@ -17,22 +17,22 @@ MEJORAS:
 
 INTEGRANTES:
 * Nicolas Eduardo Zarate Miethe
-    Aspectos positivos:Ayuda a resolver errores y dudas.
+    Aspectos positivos:
     Mejorar:Organizar mejor sus tiempos de trabajo. Mejorar el uso de ciertas estructuras.
     Puntaje:
 
 * Ignacio Benjamin Cabrera Salazar
-    Aspectos positivos:Busca posibles errores y sus soluciones.
+    Aspectos positivos:
     Mejorar:
     Puntaje:
 
 * Beatriz Macarena Segura Pasten
-    Aspectos positivos:Trabaja de manera constante y eficiente, ayuda los demas.
+    Aspectos positivos:
     Mejorar:
     Puntaje:0
 
 * Jose Ignacio Pailamilla Montecinos
-    Aspectos positivos:El buen uso del tiempo de trabajo.
-    Mejorar:El manejo de algunas estructuras, el detectar errores.
-    Puntaje:0
+    Aspectos positivos:
+    Mejorar:
+    Puntaje:
  
