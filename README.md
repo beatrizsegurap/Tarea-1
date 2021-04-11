@@ -21,6 +21,7 @@ INTEGRANTES:
 * Nicolas Eduardo Zarate Miethe
     Aspectos positivos:
     -Siempre atento a lo que sucede en los errores del codigo para poder solucionarlos
+    - Plantea soluciones a diversos problemas. 
     Mejorar:Organizar mejor sus tiempos de trabajo. Mejorar el uso de ciertas estructuras.
     Puntaje:
 
@@ -35,11 +36,12 @@ INTEGRANTES:
 
 * Beatriz Macarena Segura Pasten
     Aspectos positivos: Mantiene el codigo ordenado y entendible, con los comentarios pertinentes. Toma la iniciativa y ayuda a resolver errores que se presentan a los demas integrantes.
+    Ayuda constantemente y trabaja de forma eficaz y constante
     Mejorar: La organizacion con los demas integrantes del equipo para distribuir mejor lo que debia hacer cada uno. Comprender mejor lo solicitado en la tarea antes de programar, debio modificar varias partes por mal uso del tda en el avance.
     Puntaje:0
 
 * Jose Ignacio Pailamilla Montecinos
-    Aspectos positivos:
-    Mejorar:
-    Puntaje:
+    Aspectos positivos: buen manejo del tiempo
+    Mejorar: el uso de algunas estructuras, y identificar los errores.
+    Puntaje:0
  
