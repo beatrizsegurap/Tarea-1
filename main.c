@@ -435,8 +435,10 @@ for(i=0;i<=6;i++){
     for(z=0;z<diaux->lugares;z++){
         printf("Nombre:%s     Rut: %s\n",diaux->name[z],diaux->rut[z]);
     }
-    for(x=4-diaux->lugares;x+z<=4;x++){
+    if(diaux->lugares<5){
+    for(x=5-diaux->lugares;x+z<=5;x++){
         printf("-No hay suficiente personal disponible\n");
+    }
     }
     printf("\n");
     diaux=nextList(H);
