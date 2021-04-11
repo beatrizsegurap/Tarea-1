@@ -3,7 +3,7 @@ Programa que carga los datos de los bomberos que trabajan en una estacion a part
 horario con ellos segun su disponibilidad.
 Cada bombero contiene su nombre, rut y disponibilidad dentro de los siete dias de la semana.
 
-Para compilar ejecutar comando gcc main. list.c -o Tarea1
+Para compilar ejecutar comando gcc main.c list.c -o Tarea1
 Luego ejecutar Tarea1.exe
 
 ASPECTOS TECNICOS
@@ -29,7 +29,7 @@ INTEGRANTES:
 * Beatriz Macarena Segura Pasten
     Aspectos positivos:
     Mejorar:
-    Puntaje:
+    Puntaje:0
 
 * Jose Ignacio Pailamilla Montecinos
     Aspectos positivos:
