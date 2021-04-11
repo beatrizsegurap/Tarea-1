@@ -391,7 +391,7 @@ List* crearHorario(List* B){
         //pasara por toda la lista
             if(bomberoaux->Disponibilidad[i]==1){
             //si el bombero tiene disponibilidad entrara
-                if(aux->lugares<4){
+                if(aux->lugares<5){
                 //Si el dia no esta completo lo añade altiro
                     strcpy(aux->rut[aux->lugares],bomberoaux->Rut);
                     strcpy(aux->name[aux->lugares],bomberoaux->Name);
