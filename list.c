@@ -2,28 +2,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdlib.h>
-//#include "list.h"
-
-
-/*
-  constants
-*/
-#undef TRUE
-#define TRUE 1
-
-#undef FALSE
-#define FALSE 0
-
-
-/*
-  type definitions
-*/
-#undef Boolean
-#define Boolean short unsigned int
-
-#undef Object
-#define Object void*
-
+#include "list.h"
 
 
 /*
