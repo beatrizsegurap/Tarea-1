@@ -413,7 +413,7 @@ void modificarDisponibilidad(List * B){
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
     //Se guarda la opcion SI o NO.
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[0] = 1;
     }else{
         DiasSemana[0] = 0;
@@ -430,7 +430,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[1] = 1;
     }else{
         DiasSemana[1] = 0;
@@ -447,7 +447,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[2] = 1;
     }else{
         DiasSemana[2] = 0;
@@ -464,7 +464,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[3] = 1;
     }else{
         DiasSemana[3] = 0;
@@ -481,7 +481,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[4] = 1;
     }else{
         DiasSemana[4] = 0;
@@ -498,7 +498,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[5] = 1;
     }else{
         DiasSemana[5] = 0;
@@ -515,7 +515,7 @@ void modificarDisponibilidad(List * B){
 
     }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    if(SiNo == "SI"){ 
+    if(!strcmp(SiNo,"SI")){ 
         DiasSemana[6] = 1;
     }else{
         DiasSemana[6] = 0;
