@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "list.h"
+#include "list.c"
 
 
 //Creamos la estructura bombero y dia para el horario
