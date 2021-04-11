@@ -12,6 +12,7 @@ typedef struct{
   int Disponibilidad[7];
   int Horario[7];
   int diasDisp;
+  int trabaja;
 }Bombero;
 
 typedef struct{
@@ -569,7 +570,13 @@ List* crearHorario(List* B){
     //variables para los ciclos
     dia* aux=(dia*)malloc(sizeof(dia));
     Bombero* bomberoaux=(Bombero*)malloc(sizeof(Bombero));
+    bomberoaux=firstList(B);
     int i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
+    while(bomberoaux != NULL){
+        bomberoaux->trabaja=0;
+        bomberoaux->nextList(B);
+        if(!bomberoaux)break;
+    }
 
     //Este ciclo pasara por todos los dias de la semana del horario generandolos
     aux=firstList(H);
@@ -579,7 +586,7 @@ List* crearHorario(List* B){
         aux->lugares=0;
         while(bomberoaux != NULL){
         //pasara por toda la lista
-            if(bomberoaux->Disponibilidad[i]==1){
+            if(bomberoaux->Disponibilidad[i]==1&& bomberoaux->trabaja<5){
             //si el bombero tiene disponibilidad entrara
                 if(aux->lugares<5){
                 //Si el dia no esta completo lo añade altiro
@@ -589,6 +596,7 @@ List* crearHorario(List* B){
                     printf("%s",aux->rut[aux->lugares]);
                     aux->disp[aux->lugares]=bomberoaux->diasDisp;
                     aux->lugares+=1;
+                    bomberoaux->trabaja+=1;
                 }//------------------------------------------------------
                 /*else{//encaso de que el dia este completo, compara todos los bomberos basandose en sus dias de disponibilidad con el resto priorizando a los bomberos con menor tiempo disponible
                     d=bomberoaux->diasDisp;
