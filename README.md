@@ -18,13 +18,18 @@ MEJORAS:
 INTEGRANTES:
 * Nicolas Eduardo Zarate Miethe
     Aspectos positivos:
+    -Siempre atento a lo que sucede en los errores del codigo para poder solucionarlos
     Mejorar:Organizar mejor sus tiempos de trabajo. Mejorar el uso de ciertas estructuras.
     Puntaje:
 
 * Ignacio Benjamin Cabrera Salazar
     Aspectos positivos:
-    Mejorar:
-    Puntaje:
+    - Siempre disponible para avanzar en el trabajo.
+    - Dispuesto a ayudar al grupo en lo que haga falta.
+    Mejorar: 
+    - Tratar de llevarse más trabajo, ya que a comparación del resto del grupo hicieron más partes del codigo.
+    - Falta de dominio en el tema TDA.
+    Puntaje:0
 
 * Beatriz Macarena Segura Pasten
     Aspectos positivos:
