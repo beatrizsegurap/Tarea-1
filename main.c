@@ -425,6 +425,23 @@ List* crearHorario(List* B){
     return H;// Devuelve un puntero al horario que se guardara en main.
 }
 
+void mostrarHorario(List* H){
+printf("El horario de esta semana es:\n")
+dia* diaux=(dia*)malloc(sizeof(dia));
+diaux=firstList(H);
+int i,x,z;//i es para el contador del ciclo, x sera una variable la cual nos dira cuantos bomberos no estan disponibles
+for(i=0;i=<6;i++){
+    printf("------%s------\n",diaux->nombreD);
+    for(z=0;z<diaux->lugares;z++){
+        printf("Nombre:%s     Rut:%s\n",diaux->name[z],diaux->rut[z]);
+    }
+    for(x=4-diaux->lugares;x+z<=4;x++){
+        printf("-No hay suficiente personal disponible\n");
+    }
+    printf("\n");
+    diaux=nextList(H);
+}
+}
 
 //---------------------------------------------------------------------------
 
@@ -461,7 +478,7 @@ int main()
             case 4:BuscarRut1(B);break;
             case 5:printf("no implementada\n");break;
             case 6:H=crearHorario(B);break;
-            case 7:printf("no implementada\n");break;
+            case 7:mostrarHorario(H);;break;
             case 8:printBomberos(B);break;
         }
     }
