@@ -574,7 +574,7 @@ List* crearHorario(List* B){
     int i,j,p,d;//i es un contador para ciclos, j lo mismo, p es para la posicion
     while(bomberoaux != NULL){
         bomberoaux->trabaja=0;
-        bomberoaux->nextList(B);
+        bomberoaux=nextList(B);
         if(!bomberoaux)break;
     }
 
