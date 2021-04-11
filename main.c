@@ -395,144 +395,147 @@ void modificarDisponibilidad(List * B){
 
     //Se llama a funcion BuscadorPorRut, devuelve el bombero seleccionado. Si no existe, el programa se devuelve al menú.
     b = BuscadorPorRut(B, Rut_ingresado);
-    printf("Modifique disponibilidad del bombero (SI / NO)\n");
+    if(b){
+
+        printf("Modifique disponibilidad del bombero (SI / NO)\n");
 
 
-    char SiNo[3]; //Guardar los "SI" o "NO"
-    int DiasSemana[7]; // Arreglo para guardar 1 y 0 (1=SI, 0=NO)
+        char SiNo[3]; //Guardar los "SI" o "NO"
+        int DiasSemana[7]; // Arreglo para guardar 1 y 0 (1=SI, 0=NO)
 
-    /////////////////////
-    printf("Lunes, ");
-    
-    //Se recibe el SI o NO del usuario.
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
+        /////////////////////
+        printf("Lunes, ");
         
+        //Se recibe el SI o NO del usuario.
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
 
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
 
-    //Se guarda la opcion SI o NO.
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[0] = 1;
-    }else{
-        DiasSemana[0] = 0;
-    }
+        //Se guarda la opcion SI o NO.
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[0] = 1;
+        }else{
+            DiasSemana[0] = 0;
+        }
 
-    /////////////////////
+        /////////////////////
 
-    printf("Martes, ");
+        printf("Martes, ");
 
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[1] = 1;
+        }else{
+            DiasSemana[1] = 0;
+        }
+
+        /////////////////////
+
+        printf("Miercoles, ");
+
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[2] = 1;
+        }else{
+            DiasSemana[2] = 0;
+        }
+
+        /////////////////////
+
+        printf("Jueves, ");
+
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[3] = 1;
+        }else{
+            DiasSemana[3] = 0;
+        }
+
+        /////////////////////
+
+        printf("Viernes, ");
+
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[4] = 1;
+        }else{
+            DiasSemana[4] = 0;
+        }
+
+        /////////////////////
+
+        printf("Sabado, ");
+
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[5] = 1;
+        }else{
+            DiasSemana[5] = 0;
+        }
+
+        /////////////////////
+
+        printf("Domingo, ");
+
+        do{
+            printf("Escriba SI o NO\n");
+            scanf("%s",&SiNo);
+            
+
+        }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
+
+        if(!strcmp(SiNo,"SI")){ 
+            DiasSemana[6] = 1;
+        }else{
+            DiasSemana[6] = 0;
+        }
+
+        /////////////////////
         
+        //Se guardan los dias de disponibilidad en el bombero seleccionado.
+        b->Disponibilidad[0] = DiasSemana[0];
+        b->Disponibilidad[1] = DiasSemana[1];
+        b->Disponibilidad[2] = DiasSemana[2];
+        b->Disponibilidad[3] = DiasSemana[3];
+        b->Disponibilidad[4] = DiasSemana[4];
+        b->Disponibilidad[5] = DiasSemana[5];
+        b->Disponibilidad[6] = DiasSemana[6];
 
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[1] = 1;
-    }else{
-        DiasSemana[1] = 0;
+        printf("\n - Cambios de disponibilidad realizados correctamente - \n\n");
     }
-
-    /////////////////////
-
-    printf("Miercoles, ");
-
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
-        
-
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[2] = 1;
-    }else{
-        DiasSemana[2] = 0;
-    }
-
-    /////////////////////
-
-    printf("Jueves, ");
-
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
-        
-
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[3] = 1;
-    }else{
-        DiasSemana[3] = 0;
-    }
-
-    /////////////////////
-
-    printf("Viernes, ");
-
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
-        
-
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[4] = 1;
-    }else{
-        DiasSemana[4] = 0;
-    }
-
-    /////////////////////
-
-    printf("Sabado, ");
-
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
-        
-
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[5] = 1;
-    }else{
-        DiasSemana[5] = 0;
-    }
-
-    /////////////////////
-
-    printf("Domingo, ");
-
-    do{
-        printf("Escriba SI o NO\n");
-        scanf("%s",&SiNo);
-        
-
-    }while(strcmp(SiNo, "SI")!= 0 && strcmp(SiNo, "NO") != 0);
-
-    if(!strcmp(SiNo,"SI")){ 
-        DiasSemana[6] = 1;
-    }else{
-        DiasSemana[6] = 0;
-    }
-
-    /////////////////////
-    
-    //Se guardan los dias de disponibilidad en el bombero seleccionado.
-    b->Disponibilidad[0] = DiasSemana[0];
-    b->Disponibilidad[1] = DiasSemana[1];
-    b->Disponibilidad[2] = DiasSemana[2];
-    b->Disponibilidad[3] = DiasSemana[3];
-    b->Disponibilidad[4] = DiasSemana[4];
-    b->Disponibilidad[5] = DiasSemana[5];
-    b->Disponibilidad[6] = DiasSemana[6];
-
-    printf("\n - Cambios de disponibilidad realizados correctamente - \n\n");
 
 }
 
