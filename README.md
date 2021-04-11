@@ -18,7 +18,7 @@ MEJORAS:
 INTEGRANTES:
 * Nicolas Eduardo Zarate Miethe
     Aspectos positivos:
-    Mejorar:
+    Mejorar:Organizar mejor sus tiempos de trabajo. Mejorar el uso de ciertas estructuras.
     Puntaje:
 
 * Ignacio Benjamin Cabrera Salazar
