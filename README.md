@@ -6,6 +6,8 @@ Cada bombero contiene su nombre, rut y disponibilidad dentro de los siete dias d
 Para compilar ejecutar comando gcc main.c list.c -o Tarea1
 Luego ejecutar Tarea1.exe
 
+Repositorio en GitHub https://github.com/beatrizsegurap/Tarea-1.git
+
 ASPECTOS TECNICOS
     * Creamos una estructura de tipo bombero donde almacenamos el nombre, rut y disponibilidad de cada uno, cada uno de ellos dentro de una lista doblemente enlazada
     * Almacenamos el horario en una estrutura por cada dia y almacenada en una lista doblemente enlazada.
@@ -31,8 +33,8 @@ INTEGRANTES:
     Puntaje:0
 
 * Beatriz Macarena Segura Pasten
-    Aspectos positivos:
-    Mejorar:
+    Aspectos positivos: Mantiene el codigo ordenado y entendible, con los comentarios pertinentes. Toma la iniciativa y ayuda a resolver errores que se presentan a los demas integrantes.
+    Mejorar: La organizacion con los demas integrantes del equipo para distribuir mejor lo que debia hacer cada uno. Comprender mejor lo solicitado en la tarea antes de programar, debio modificar varias partes por mal uso del tda en el avance.
     Puntaje:0
 
 * Jose Ignacio Pailamilla Montecinos
