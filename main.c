@@ -398,7 +398,7 @@ void modificarDisponibilidad(List * B){
     printf("Modifique disponibilidad del bombero (SI / NO)\n");
 
 
-    char SiNo[2]; //Guardar los "SI" o "NO"
+    char SiNo[3]; //Guardar los "SI" o "NO"
     int DiasSemana[7]; // Arreglo para guardar 1 y 0 (1=SI, 0=NO)
 
     /////////////////////
