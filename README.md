@@ -29,6 +29,7 @@ INTEGRANTES:
     Aspectos positivos:
     - Siempre disponible para avanzar en el trabajo.
     - Dispuesto a ayudar al grupo en lo que haga falta.
+    - Busca soluciones a posibles problemas.
     Mejorar: 
     - Tratar de llevarse más trabajo, ya que a comparación del resto del grupo hicieron más partes del codigo.
     - Falta de dominio en el tema TDA.
