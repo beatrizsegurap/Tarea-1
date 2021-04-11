@@ -20,6 +20,7 @@ MEJORAS:
 INTEGRANTES:
 * Nicolas Eduardo Zarate Miethe
     Aspectos positivos:
+    -Siempre atento a lo que sucede en los errores del codigo para poder solucionarlos
     Mejorar:Organizar mejor sus tiempos de trabajo. Mejorar el uso de ciertas estructuras.
     Puntaje:
 
